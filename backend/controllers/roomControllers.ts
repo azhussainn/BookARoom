@@ -18,15 +18,16 @@ export const allRooms = catchAsyncError(async (req: NextRequest) => {
     queryStr[key] = value;
   });
 
-  const totalRoomCount: number = await Room.countDocuments();
-
-  const apiFilters = new ApiFilters(Room, queryStr).search().filter().pagination(resPerPage);
-  const rooms: IRoom[] = await apiFilters.query;
+  let apiFilters = new ApiFilters(Room, queryStr).search().filter();
+  let rooms: IRoom[] = await apiFilters.query;
   const filteredRoomCount: number = rooms.length;
+
+  //for pagination we need to clone the query
+  rooms = await apiFilters.query.clone();
+  apiFilters = apiFilters.pagination(resPerPage);
 
   return NextResponse.json({
     success: true,
-    totalRoomCount,
     filteredRoomCount,
     resPerPage,
     rooms
