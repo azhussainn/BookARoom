@@ -3,6 +3,7 @@ import RoomItem from "./room/RoomItem";
 import { type IRoom } from "@/backend/models/rooms";
 import CustomPagination from "./layout/CustomPagination";
 import Link from "next/link";
+import TotalRooms from "./TotalRooms";
 
 
 export type HomeProps = {
@@ -19,9 +20,9 @@ const Home: FC<HomeProps> = ({ data }) => {
     return (
         <div>
             <section id="rooms" className="container mt-5">
-                <h2 className="mb-3 ml-2 stays-heading">All Rooms</h2>
+                <TotalRooms filteredRoomCount={filteredRoomCount} />
                 <Link href="/search" className="ml-2 back-to-search">
-                    <i className="fa fa-arrow-left"></i> Back to Search
+                    <i className="fa fa-arrow-left m-2"></i> Back to Search
                 </Link>
                 <div className="row mt-4">
                     {rooms.length === 0 ?
