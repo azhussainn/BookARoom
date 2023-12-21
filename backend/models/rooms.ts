@@ -4,50 +4,50 @@ export type User = mongoose.Schema.Types.ObjectId;
 
 export interface IReview extends Document {
     user: User,
-    rating: Number,
-    comment: String,
+    rating: number,
+    comment: string,
 }
 
 export interface Ilocation {
-    type: String,
-    coordinates: Number[],
-    formattedAddress: String,
-    city: String,
-    state: String,
-    zipCode: String,
-    country: String,
+    type: string,
+    coordinates: number[],
+    formattedAddress: string,
+    city: string,
+    state: string,
+    zipCode: string,
+    country: string,
 
 }
 
 export interface IImage extends Document {
-    public_id: String,
-    url: String,
+    public_id: string,
+    url: string,
 }
 
 export interface IRoom extends Document {
-    name: String,
-    description: String,
-    pricePerNight: Number,
-    address: String,
+    name: string,
+    description: string,
+    pricePerNight: number,
+    address: string,
     location: Ilocation,
-    guestCapacity: Number,
-    totalBeds: Number,
+    guestCapacity: number,
+    totalBeds: number,
     internet: Boolean,
     isBreakfastAvailable: Boolean,
     isAirConditioned: Boolean,
     arePetsAllowed: Boolean,
     hasRoomCleaning: Boolean,
-    ratings: Number,
-    numReviews: Number,
+    ratings: number,
+    numReviews: number,
     images: IImage[],
-    category: String,
+    category: string,
     reviews: IReview[],
     user: User,
     createdAt: Date,
 }
 
 
-const roomSchema: Schema = new Schema({
+const roomSchema: Schema<IRoom> = new Schema({
     name: {
         type: String,
         required: [true, "Please enter a room name"],
@@ -65,8 +65,7 @@ const roomSchema: Schema = new Schema({
     },
     address: {
         type: String,
-        required: [true, "Please enter a room address"],
-        default: 0.0
+        required: [true, "Please enter a room address"]
     },
     location: {
         type: {

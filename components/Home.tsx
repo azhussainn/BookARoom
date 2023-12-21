@@ -22,7 +22,7 @@ const Home: FC<HomeProps> = ({ data }) => {
             <section id="rooms" className="container mt-5">
                 <TotalRooms filteredRoomCount={filteredRoomCount} />
                 <Link href="/search" className="ml-2 back-to-search">
-                    <i className="fa fa-arrow-left m-2"></i> Back to Search
+                    <i className="fa fa-arrow-left m-2" aria-hidden></i> Back to Search
                 </Link>
                 <div className="row mt-4">
                     {rooms.length === 0 ?

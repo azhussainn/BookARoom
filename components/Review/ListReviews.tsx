@@ -18,11 +18,11 @@ const ListReviews = () => {
                     </div>
                     <div className="col-9 col-lg-11">
                         <div className="star-ratings">
-                            <i className="fa fa-star"></i>
-                            <i className="fa fa-star"></i>
-                            <i className="fa fa-star"></i>
-                            <i className="fa fa-star"></i>
-                            <i className="fa fa-star-half"></i>
+                            <i className="fa fa-star" aria-hidden></i>
+                            <i className="fa fa-star" aria-hidden></i>
+                            <i className="fa fa-star" aria-hidden></i>
+                            <i className="fa fa-star" aria-hidden></i>
+                            <i className="fa fa-star-half" aria-hidden></i>
                         </div>
                         <p className="review_user mt-1">by John Doe</p>
                         {/* <!-- Placeholder for Review Comment --> */}
