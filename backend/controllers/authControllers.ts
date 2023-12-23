@@ -1,9 +1,6 @@
-import mongoose from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
-import User, { IUser } from "../models/user";
+import User from "../models/user";
 import { catchAsyncError } from "@/middlewares/catchAsyncErros";
-import Errorhandler from "../utils/errorHandler";
-import ApiFilters from "../utils/apiFilters";
 
 
 //for registering a user 

@@ -32,6 +32,8 @@ export default function RootLayout({
           <Footer />
         </GlobalProvider>
         <Script src="https://kit.fontawesome.com/5132990bdd.js"></Script>
+        <Script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></Script>
+        <Script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></Script>
       </body>
     </html>
   )
