@@ -36,7 +36,7 @@ const Register = () => {
     useEffect(() => {
         let customError = Object(error);
         if(error && customError && 'data' in customError){
-            toast.error(customError?.data?.message);
+            toast.error(customError?.data?.message || "Something went wrong");
         }
         if(isSuccess){
             router.push('/login');

@@ -10,6 +10,10 @@ type Credentials = {
   password: string,
 }
 
+type Token = {
+  user: IUser,
+}
+
 async function auth(req: NextApiRequest, res: NextApiResponse) {
     return NextAuth(req, res, {
       session: {
@@ -40,10 +44,18 @@ async function auth(req: NextApiRequest, res: NextApiResponse) {
       ],
       callbacks: {
         async jwt({ token, user }) {
+
+          const jwtToken = token as Token;
+
           if(user){
             token.user = user
           }
           // TODO: update session when user is updated
+          if(req.url?.includes('/api/auth/session?update')){
+            //getting updated user from db
+            const updatedUser = await User.findById(jwtToken.user?._id);
+            token.user = updatedUser;
+          }
           return token;
         },
         async session({ session, token}) { 
@@ -53,6 +65,9 @@ async function auth(req: NextApiRequest, res: NextApiResponse) {
           delete session?.user?.password;
           return session
         }
+      },
+      pages: {
+        signIn: "/login",
       },
       secret: process.env.NEXTAUTH_SECRET
     })

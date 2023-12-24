@@ -1,4 +1,4 @@
-import RoomDetails from "@/components/room/RoomDetails";
+import RoomDetails from "@/components/Room/RoomDetails";
 import Error from "@/app/error";
 import type { Metadata, ResolvingMetadata  } from 'next';
 

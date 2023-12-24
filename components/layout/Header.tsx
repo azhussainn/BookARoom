@@ -16,7 +16,7 @@ const Header = () => {
     const handleLogout = () => {
         signOut()
     }
-
+    
     useEffect(() => {
         if(data){
             dispatch(setUser(data.user));

@@ -1,5 +1,5 @@
 import { type FC } from "react";
-import RoomItem from "./room/RoomItem";
+import RoomItem from "./Room/RoomItem";
 import { type IRoom } from "@/backend/models/rooms";
 import CustomPagination from "./layout/CustomPagination";
 import Link from "next/link";

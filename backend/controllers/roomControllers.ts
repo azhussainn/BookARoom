@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
 import Room, { IRoom } from "../models/rooms";
-import { catchAsyncError } from "@/middlewares/catchAsyncErros";
+import { catchAsyncError } from "@/backend/middlewares/catchAsyncErros";
 import Errorhandler from "../utils/errorHandler";
 import ApiFilters from "../utils/apiFilters";
 
